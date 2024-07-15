@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row">
+    <form [formGroup]="submitForm" (ngSubmit)="onLogIn(submitForm)">
+      <div class="card text-center rounded-5">
+        <div class="card-body d-flex justify-content-between mx-3 my-3">
+          <div class="col-md-5 col-sm-3">
+            <input
+              type="text"
+              class="form-control text-center my-3"
+              placeholder="First-Name"
+              formControlName="firstName"
+            />
+
+            <input
+              type="text"
+              class="form-control text-center my-3"
+              placeholder="Phone-Number"
+              formControlName="phoneNumber"
+            />
+            <button
+              type="button"
+              class="bg-secondary text-light w-25 rounded-5 border-0 mx-5 my-4 py-1"
+              (click)="cancelForm()"
+            >
+              cancel
+            </button>
+          </div>
+          <div class="col-md-5 col-sm-3">
+            <input
+              type="text"
+              class="form-control text-center my-3"
+              placeholder="Last-Name"
+              formControlName="lastName"
+            />
+
+            <input
+              type="email"
+              class="form-control text-center my-3"
+              placeholder="Email"
+              formControlName="email"
+            />
+            <button
+              type="submit"
+              class="bg-primary text-light w-25 rounded-5 border-0 mx-5 my-4 py-1"
+            >
+              save
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

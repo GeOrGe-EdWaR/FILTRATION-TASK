@@ -1,0 +1,26 @@
+.container-fluid {
+  background-image: url("../../assets/background.jfif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: auto;
+  width: 100vw;
+  padding: 0;
+
+}
+.row {
+  /* padding-top: 20px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+img {
+  height: 80px;
+  width: 100px;
+}
+a {
+  cursor: pointer;
+  
+}
+
