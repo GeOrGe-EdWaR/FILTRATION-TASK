@@ -2,24 +2,30 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { UserInfo } from '../user-info';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MainServiceService {
   constructor(private _httpClient: HttpClient) {}
+
   createUser(data: FormGroup): Observable<any> {
-    return this._httpClient.post('data/v1/user/create', data);
+    return this._httpClient.post('create', data);
   }
 
   listUser(): Observable<any> {
-    return this._httpClient.get('data/v1/user');
+    return this._httpClient.get('');
   }
 
-  updateUser(id: number): Observable<any> {
-    return this._httpClient.put('data/v1/user/', id);
+  getUserById(id: number): Observable<any> {
+    return this._httpClient.get(`${id}`);
   }
-  onDeleteUser(id: any): Observable<any> {
-    return this._httpClient.delete('data/v1/user/', id);
+  updateUser(data: FormGroup, id: number): Observable<any> {
+    return this._httpClient.put(`${id}`, data);
+  }
+
+  onDeleteUser(id:number): Observable<any> {
+    return this._httpClient.delete(`${id}`);
   }
 }

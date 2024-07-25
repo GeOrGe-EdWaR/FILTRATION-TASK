@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MainServiceService } from '../services/main-service.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-authentication',
@@ -9,21 +9,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./authentication.component.css'],
 })
 export class AuthenticationComponent {
+  userId: any;
+
+  userFormUpdate: any = {
+    email: '',
+    firstName: '',
+    lastName: '',
+    // phoneNumber: '',
+    picture: '',
+  };
   constructor(
     private _mainService: MainServiceService,
-    private _router: Router
-  ) {}
+    private _router: Router,
+    private _activatedRoute: ActivatedRoute
+  ) {
+    this.userId = _activatedRoute.snapshot.params['id'];
+  }
   //reactive submitForm
-  submitForm = new FormGroup({
+  userForm = new FormGroup({
     email: new FormControl(null),
     firstName: new FormControl(null),
     lastName: new FormControl(null),
     phoneNumber: new FormControl(null),
+    picture: new FormControl('https://fakeimg.pl/300/'),
   });
+
   // onLogIn function
+
   onLogIn(data: FormGroup) {
     console.log(data.value);
-    return this._mainService.createUser(data.value).subscribe({
+    this._mainService.createUser(data.value).subscribe({
       next: (res) => {
         console.log(res);
       },
@@ -35,14 +50,5 @@ export class AuthenticationComponent {
         this._router.navigate(['/home']);
       },
     });
-  }
-
-  // ngOnInit(): void {
-  //   this.onLogIn(this.submitForm);
-  // }
-
-  //reset function
-  cancelForm() {
-    this.submitForm.reset();
   }
 }

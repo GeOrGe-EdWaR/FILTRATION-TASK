@@ -8,6 +8,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainInterceptor } from './main.interceptor';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { MainInterceptor } from './main.interceptor';
     HomeComponent,
     AuthenticationComponent,
     NotFoundComponent,
+    UpdateUserComponent,
   ],
   imports: [
     BrowserModule,

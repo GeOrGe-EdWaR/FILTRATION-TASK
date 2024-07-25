@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <form [formGroup]="userForm" (ngSubmit)="onLogIn(userForm)">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)">
       <div class="card text-center rounded-5">
         <div class="card-body d-flex justify-content-between mx-3 my-3">
           <div class="col-md-5 col-sm-3">
@@ -17,12 +17,6 @@
               placeholder="Phone-Number"
               formControlName="phoneNumber"
             />
-            <button
-              type="button"
-              class="bg-secondary text-light w-25 rounded-5 border-0 mx-5 my-4 py-1"
-            >
-              cancel
-            </button>
           </div>
           <div class="col-md-5 col-sm-3">
             <input
@@ -39,16 +33,15 @@
               formControlName="email"
             />
 
-            <div class="input-group ">
-              <button
-                type="submit"
-                class="bg-primary text-light w-25 rounded-5 border-0 border-0 mx-5 my-4 py-1 "
-              >
-                save
-              </button>
-            </div>
+            <div class="input-group mb-3"></div>
           </div>
         </div>
+        <button
+          type="submit"
+          class="bg-primary text-light w-25 rounded-5 border-0 text-center save"
+        >
+          save
+        </button>
       </div>
     </form>
   </div>

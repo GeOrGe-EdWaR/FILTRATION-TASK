@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'authentication', pathMatch: 'full' },
@@ -13,6 +14,14 @@ const routes: Routes = [
   {
     path: 'authentication',
     component: AuthenticationComponent,
+  },
+  {
+    path: 'update-user/:id',
+    component: UpdateUserComponent,
+  },
+  {
+    path: 'update-user',
+    component: UpdateUserComponent,
   },
 
   { path: '**', component: NotFoundComponent },

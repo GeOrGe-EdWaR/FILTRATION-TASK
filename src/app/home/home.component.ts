@@ -9,19 +9,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  userId: number = 0;
   posts: any = [];
   userInfo: any = {};
   constructor(
     private _mainService: MainServiceService,
     private _activatedRoute: ActivatedRoute
-  ) {
-    this.userId = _activatedRoute.snapshot.params['id'];
-  }
+  ) {}
 
   ngOnInit(): void {
     this.listUser();
-    this.onUpdate(this.userId);
+    // this.onUpdate(this.userId);
   }
   listUser() {
     this._mainService.listUser().subscribe({
@@ -36,21 +33,21 @@ export class HomeComponent implements OnInit {
       complete: () => console.log('complete'),
     });
   }
-  onUpdate(id: number) {
-    this._mainService.updateUser(this.userId).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.userInfo = res;
-      },
-      error: (err) => {
-        console.log(err);
-      },
-      complete: () => console.log('complete'),
-    });
-  }
+  // onUpdate(id: number) {
+  //   this._mainService.updateUser(this.userId).subscribe({
+  //     next: (res) => {
+  //       console.log(res);
+  //       this.userInfo = res;
+  //     },
+  //     error: (err) => {
+  //       console.log(err);
+  //     },
+  //     complete: () => console.log('complete'),
+  //   });
+  // }
 
-  onDelete() {
-    this._mainService.onDeleteUser(this.userId).subscribe({
+  onDelete(id: number) {
+    this._mainService.onDeleteUser(id).subscribe({
       next: (res) => {
         console.log(res);
       },

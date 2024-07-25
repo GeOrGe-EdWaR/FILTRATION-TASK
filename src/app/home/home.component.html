@@ -1,36 +1,44 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-6 col-sm-3">
-      <div class="card">
-        <div class="card-body rounded-5 border-black">
-          <div class="user">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">picture</th>
-                  <th scope="col">First Name</th>
-                  <th scope="col">Last Name</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let post of posts">
-                  <td><img [src]="post.picture" class="rounded-5" /></td>
-                  <td class="align-content-center">{{ post.firstName }}</td>
-                  <td class="align-content-center">{{ post.lastName }}</td>
-                  <td class="align-content-center">
-                    <a class="me-2" [routerLink]="['/updateUser', post.id]">
-                      <i class="fa-solid fa-pen-to-square text-dark"></i>
-                    </a>
-                    <a (click)="onDelete()">
-                      <i class="fa-solid fa-trash"></i>
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+    <div class="col-lg-6 col-md-3 col-sm-1">
+      <button routerLink="/update-user" class="btn btn-primary rounded-5 my-3">Add New User</button>
+      <div class="user">
+        <table class="table rounded border-black bg-transparent text-body">
+          <thead class="thead">
+            <tr>
+              <th class="bg-transparent text-body" scope="col">picture</th>
+              <th class="bg-transparent text-body" scope="col">First Name</th>
+              <th class="bg-transparent text-body" scope="col">Last Name</th>
+              <th class="bg-transparent text-body" scope="col"></th>
+            </tr>
+          </thead>
+          <tbody class="tbody">
+            <tr *ngFor="let post of posts">
+              <td class="rounded-5 bg-transparent text-body">
+                <img [src]="post.picture" />
+              </td>
+              <td class="align-content-center bg-transparent text-body">
+                {{ post.firstName }}
+              </td>
+              <td class="align-content-center bg-transparent text-body">
+                {{ post.lastName }}
+              </td>
+              <td class="align-content-center bg-transparent text-body">
+                <a
+                  class="me-2 bg-transparent text-body"
+                  [routerLink]="['/update-user', post.id]"
+                >
+                  <i
+                    class="fa-solid fa-pen-to-square text-dark bg-transparent text-body"
+                  ></i>
+                </a>
+                <a (click)="onDelete(post.id)">
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
